@@ -9,9 +9,8 @@ namespace Test.Extensions
 {
     public static class AppPipelineExtension
     {
-        public static async Task AddPipeline(this WebApplication app)
+        public static void AddPipeline(this WebApplication app)
         {
-            await app.InitialiseDatabaseAsync();
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseAuthorization();

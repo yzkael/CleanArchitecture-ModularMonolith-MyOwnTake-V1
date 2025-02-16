@@ -1,4 +1,5 @@
 using Serilog;
+using Test.Data;
 using Test.Extensions;
 
 Log.Logger = new LoggerConfiguration()
@@ -15,6 +16,7 @@ try
     builder.AddServices(builder.Configuration);
     var app = builder.Build();
     // Configure the HTTP request pipeline.
+    await app.InitialiseDatabaseAsync();
     app.AddPipeline();
     app.Run();
 
